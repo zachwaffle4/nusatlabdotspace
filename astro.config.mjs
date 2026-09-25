@@ -18,14 +18,14 @@ export default defineConfig({
   fonts: [
     {
       name: 'Roboto',
-      cssVariable: '--font-body',
+      cssVariable: '--font-sans',
       provider: fontProviders.fontsource(),
       weights: ['400 700'],
-      styles: ['normal']
+      styles: ['normal', 'italic']
     },
     {
       name: 'JetBrains Mono',
-      cssVariable: '--font-jetbrains-mono',
+      cssVariable: '--font-mono',
       provider: fontProviders.fontsource(),
       weights: [400, 500],
       styles: ['normal'],
