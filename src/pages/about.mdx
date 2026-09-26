@@ -7,7 +7,7 @@ lead: Student-operated satellite and space research team at Northeastern Univers
 ---
 
 import { Image } from 'astro:assets';
-import { Section, Grid, Card, OrgList, Figure, CubeSatSizes } from '../components';
+import { Section, Grid, Card, OrgList, Figure, CubeSatSizes, NumberedTabs } from '../components';
 import Cpu from '@lucide/astro/icons/cpu';
 import CodeXml from '@lucide/astro/icons/code-xml';
 import Orbit from '@lucide/astro/icons/orbit';
@@ -42,29 +42,43 @@ import AlumniEmployers from '../partials/alumni-employers.mdx';
 
 <Section id="teams" title="Teams" sub="Every member joins at least one. Each team meets once a week; times are on the This Semester page.">
 
-<Grid cols={2}>
-  <Card title="Hardware" Icon={Cpu}>
-    Mechanical and electrical engineering for spacecraft and ground hardware. Mechanical members CAD in SolidWorks and
-    Onshape, build with 3D printers, laser cutters, and CNC in EXP and the AerospaceNU back lab, and run structural,
-    thermal, and frequency analyses. Electrical and embedded members design PCBs and dev boards, test and validate
-    space hardware, and write firmware.
-  </Card>
-  <Card title="Software" Icon={CodeXml}>
-    Flight and ground-station software: sensing, control, imaging, and compression algorithms, plus satellite
-    communication, networking, and scheduling systems, tested and merged across every mission subsystem. This
-    semester’s goal is a working FlatSat by January.
-  </Card>
-  <Card title="Simulations" Icon={Orbit}>
-    Orbital and mission simulation with tools like FreeFlyer and Systems Tool Kit, scientific computing to verify
-    mission and system architecture, and Python or MATLAB/Simulink models to test algorithms, kinematics, and control
-    loops.
-  </Card>
-  <Card title="Business" Icon={BriefcaseBusiness}>
-    Finding and winning competitions and proposals from NASA, AFRL, IEEE, and more; reaching out to researchers and
-    institutions; logistics, operations, and finance; merch and branding; and recruitment campaigns and community
-    engagement.
-  </Card>
-</Grid>
+<NumberedTabs
+  label="Teams"
+  items={[
+    {
+      id: 'hardware',
+      title: 'Hardware',
+      Icon: Cpu,
+      statement: 'Mechanical and electrical engineering for spacecraft and ground hardware.',
+      body: 'Mechanical members CAD in SolidWorks and Onshape, build with 3D printers, laser cutters, and CNC in EXP and the AerospaceNU back lab, and run structural, thermal, and frequency analyses. Electrical and embedded members design PCBs and dev boards, test and validate space hardware, and write firmware.',
+      meta: 'Director: Jeremy Ng',
+    },
+    {
+      id: 'software',
+      title: 'Software',
+      Icon: CodeXml,
+      statement: 'Flight and ground-station software, tested and merged across every mission subsystem.',
+      body: 'Sensing, control, imaging, and compression algorithms, plus satellite communication, networking, and scheduling systems. This semester’s goal is a working FlatSat by January.',
+      meta: 'Director: Sandhya Moorthi',
+    },
+    {
+      id: 'simulations',
+      title: 'Simulations',
+      Icon: Orbit,
+      statement: 'Orbital and mission simulation to verify mission and system architecture.',
+      body: 'Tools like FreeFlyer and Systems Tool Kit, plus Python or MATLAB/Simulink models to test algorithms, kinematics, and control loops.',
+      meta: 'Director: Swati Sundaram',
+    },
+    {
+      id: 'business',
+      title: 'Business',
+      Icon: BriefcaseBusiness,
+      statement: 'Finding and winning the competitions and proposals that fund our projects.',
+      body: 'Proposals to NASA, AFRL, IEEE, and more; outreach to researchers and institutions; logistics, operations, and finance; merch and branding; and recruitment campaigns and community engagement.',
+      meta: 'Director: Sandhya Moorthi',
+    },
+  ]}
+/>
 </Section>
 
 <Section title="What we’re for">

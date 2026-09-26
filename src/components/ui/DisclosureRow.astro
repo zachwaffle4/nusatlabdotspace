@@ -1,0 +1,41 @@
+---
+// One row in a <DisclosureList>: a "+" that opens to show the children. Without children it's a plain row.
+//   aside : short text on the right (e.g. the project a partner works on)
+//   group : rows sharing a group name close each other when one opens
+import Plus from '@lucide/astro/icons/plus';
+
+interface Props {
+  title: string;
+  aside?: string;
+  asideHref?: string;
+  group?: string;
+}
+
+const { title, aside, asideHref, group } = Astro.props;
+const hasBody = Astro.slots.has('default');
+const row = 'grid grid-cols-[2.5rem_minmax(0,1fr)_auto] items-center gap-4 py-5 sm:grid-cols-[6rem_minmax(0,1fr)_auto]';
+---
+
+<li class="border-t border-line">
+  {hasBody ? (
+    <details name={group} class="group">
+      <summary class:list={[row, 'cursor-pointer list-none hover:text-clay [&::-webkit-details-marker]:hidden']}>
+        <Plus class="size-5 text-clay transition-transform group-open:rotate-45" aria-hidden="true" />
+        <span class="text-lg text-white group-hover:text-clay">{title}</span>
+        {aside && <span class="text-right text-sm text-slate">{aside}</span>}
+      </summary>
+      <div class="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-4 pb-6 sm:grid-cols-[6rem_minmax(0,1fr)]">
+        <div class="col-start-2 max-w-[60ch] space-y-3 text-pretty text-alice/80">
+          <slot />
+          {aside && asideHref && <p><a href={asideHref}>More about {aside}</a></p>}
+        </div>
+      </div>
+    </details>
+  ) : (
+    <div class={row}>
+      <span aria-hidden="true"></span>
+      <span class="text-lg text-white">{title}</span>
+      {aside && <span class="text-right text-sm text-slate">{aside}</span>}
+    </div>
+  )}
+</li>

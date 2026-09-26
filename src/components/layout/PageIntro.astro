@@ -1,14 +1,27 @@
 ---
+// The h1 and lead at the top of a page. The small bracketed label sits in the same left rail as section titles;
+// it defaults to the page title, and subpages pass their parent (e.g. "Projects") with `labelHref`.
 interface Props {
   title: string;
+  label?: string;
+  labelHref?: string;
 }
 
-const { title } = Astro.props;
+const { title, label = title, labelHref } = Astro.props;
+const Label = labelHref ? 'a' : 'p';
 ---
 
 <header class="mx-auto w-full max-w-6xl px-5 pt-14 pb-12 sm:pt-20 sm:pb-16">
   <h1 class="max-w-4xl font-display text-4xl font-medium text-balance text-white sm:text-5xl">{title}</h1>
-  <p class="mt-5 max-w-[60ch] text-lg text-pretty text-alice/85">
-    <slot />
-  </p>
+  <div class="mt-6 grid gap-x-12 gap-y-3 lg:grid-cols-[14rem_minmax(0,1fr)]">
+    <Label
+      href={labelHref}
+      class="pt-1.5 font-mono text-xs tracking-wider text-slate uppercase no-underline hover:text-clay"
+    >
+      [{label}]
+    </Label>
+    <p class="max-w-[60ch] text-lg text-pretty text-alice/85">
+      <slot />
+    </p>
+  </div>
 </header>

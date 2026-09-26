@@ -5,7 +5,7 @@ import ArrowRight from '@lucide/astro/icons/arrow-right';
 import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
 import hero from '../assets/photos/nasa-cubesats-over-earth.jpg';
 import deployer from '../assets/photos/nasa-cubesat-deployer.jpg';
-import { Section, Org, OrgList, MailingListForm, Figure, TeraLinkLinks, CassegrainDish, DewsatSwath } from '../components';
+import { Section, OrgList, DisclosureList, DisclosureRow, MailingListForm, Figure, TeraLinkLinks, CassegrainDish, DewsatSwath } from '../components';
 import { teams } from '../components/site/teams';
 import AlumniEmployers from '../partials/alumni-employers.mdx';
 
@@ -152,20 +152,33 @@ const press = [
   </Section>
 
   <Section title="Who we work with">
-    <div class="space-y-4">
-      <OrgList label="Partners and mentors:">
-        <Org>NASA’s CubeSat Launch Initiative</Org>
-        <Org>AFRL’s University Nanosatellite Program</Org>
-        <Org>Northeastern’s Institute for the Wireless Internet of Things</Org>
-        <Org>UNLab</Org>
-        <Org>NSF CIRC</Org>
-        <Org>PROVES</Org>
-        <Org>Cal Poly Pomona Bronco Space</Org>
-        <Org>the MIT Satellite Team</Org>
-        <Org>Morehead State University</Org>
-      </OrgList>
-      <OrgList label="Members and alumni have gone on to:"><AlumniEmployers /></OrgList>
-    </div>
+    <DisclosureList>
+      <DisclosureRow group="partners" title="AFRL University Nanosatellite Program" aside="TeraLink-1" asideHref="/projects/teralink-1">
+        Funds TeraLink-1 through UNP NS-12, and runs the design reviews it has to pass on the way to flight.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="UNLab" aside="TeraLink-1" asideHref="/projects/teralink-1">
+        The Ultrabroadband Nanonetworking Lab. We build TeraLink-1 and its sub-THz ground station with them.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="Institute for the Wireless Internet of Things" aside="TeraLink-1" asideHref="/projects/teralink-1">
+        Northeastern’s wireless research institute, and UNLab’s home.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="PROVES" aside="PROVES Atlas" asideHref="/projects/proves-atlas">
+        An educational satellite program that’s developing university CubeSat kits for under $3,000. Atlas flew as
+        part of it.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="Cal Poly Pomona Bronco Space" aside="PROVES Atlas" asideHref="/projects/proves-atlas">
+        Leads the Pleiades Consortium, the five university teams that built Atlas together.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="MIT Satellite Team" aside="LEONIRD" asideHref="/projects#core">
+        Leads LEONIRD, an open-source, payload-agnostic satellite bus. We’re helping pick and build its 1U payload.
+      </DisclosureRow>
+      <DisclosureRow group="partners" title="NASA’s CubeSat Launch Initiative">
+        One of the programs we use to get our satellites to orbit.
+      </DisclosureRow>
+      <DisclosureRow title="NSF CIRC" />
+      <DisclosureRow title="Morehead State University" />
+    </DisclosureList>
+    <OrgList label="Members and alumni have gone on to:" class="mt-10"><AlumniEmployers /></OrgList>
   </Section>
 
   <Section title="In the news">
