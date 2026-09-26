@@ -14,19 +14,61 @@ import DewsatArt from '../assets/missions/dewsat.svg';
 
 <Section id="flagship" title="Flagship Projects" sub="Our major projects; check out their dedicated pages!">
 
-<Grid cols={2} class="gap-y-14">
-  <ImageCard title="PROVES Atlas" tag="Launched · April 2026" href="/projects/proves-atlas" Art={ProvesArt}>
+<Grid cols={2} class="gap-8">
+  <ImageCard
+    title="PROVES Atlas"
+    tag="Launched · April 2026"
+    href="/projects/proves-atlas"
+    Art={ProvesArt}
+    specs={[
+      { label: 'Payload', value: 'Sony Spresense camera' },
+      { label: 'Build', value: '~15 students, under a year' },
+      { label: 'Partners', value: 'Pleiades Consortium · 5 universities' },
+    ]}
+  >
     Northeastern's first satellite: a student-built camera CubeSat, deployed from the ISS as part of a five-university
     constellation.
   </ImageCard>
-  <ImageCard title="TeraLink-1" tag="Critical Design Review" href="/projects/teralink-1" Art={SatelliteArt} meta="Leads: Noah Typrin, Landon Bayer">
-    A 6U CubeSat for the first-ever terahertz space-to-ground link demo, funded by AFRL's University Nanosatellite
-    Program.
+  <ImageCard
+    title="TeraLink-1"
+    tag="Critical Design Review"
+    href="/projects/teralink-1"
+    Art={SatelliteArt}
+    specs={[
+      { label: 'Size', value: '6U CubeSat' },
+      { label: 'Link', value: '225 GHz uplink & downlink' },
+      { label: 'Orbit', value: '~400 km, ISS deployment' },
+      { label: 'Leads', value: 'Noah Typrin, Landon Bayer' },
+    ]}
+  >
+    The first-ever terahertz space-to-ground link demo, funded by AFRL's University Nanosatellite Program.
   </ImageCard>
-  <ImageCard title="Sub-THz Ground Station" tag="System Requirements Review" href="/projects/sub-thz" Art={GroundstationArt} meta="Lead: Riley Ashok">
-    TeraLink-1's ground segment: a 2 m reflector dish with 83 µm surface accuracy for 225 GHz uplink and downlink.
+  <ImageCard
+    title="Sub-THz Ground Station"
+    tag="System Requirements Review"
+    href="/projects/sub-thz"
+    Art={GroundstationArt}
+    specs={[
+      { label: 'Dish', value: '2 m Cassegrain reflector' },
+      { label: 'Surface', value: '83 µm accuracy' },
+      { label: 'Link', value: '225 GHz uplink & downlink' },
+      { label: 'Lead', value: 'Riley Ashok' },
+    ]}
+  >
+    TeraLink-1's ground segment: the dish that tracks the satellite and carries the other end of its terahertz link.
   </ImageCard>
-  <ImageCard title="DEWSat" tag="NASA Space to Soil finalist" href="/projects/dewsat" Art={DewsatArt} meta="Lead: Swati Sundaram">
+  <ImageCard
+    title="DEWSat"
+    tag="NASA Space to Soil finalist"
+    href="/projects/dewsat"
+    Art={DewsatArt}
+    specs={[
+      { label: 'Orbit', value: '550 km, sun-synchronous' },
+      { label: 'Size', value: '6U, down from 12U' },
+      { label: 'Model', value: '~30–100 KB quantized Bi-LSTM' },
+      { label: 'Lead', value: 'Swati Sundaram' },
+    ]}
+  >
     A drought early-warning satellite that scores farmland for drought risk in orbit and sends down only the high-risk
     images.
   </ImageCard>

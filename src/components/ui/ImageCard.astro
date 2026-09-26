@@ -1,37 +1,54 @@
 ---
-// A <Card> with an illustration on top, for the handful of flagship projects.
-//   Art  : SVG component imported from src/assets/missions/. Decorative, since the title names the program.
-//   tag  : status, shown under the title
-//   meta : small line under the body (leads, collaborators)
-//   href : links the title and the illustration
+// A spec-sheet card for the handful of flagship projects: an illustration on top, then the title, status, body,
+// and a table of key figures.
+//   Art   : SVG component imported from src/assets/missions/. Decorative, since the title names the project.
+//   tag   : status, shown under the title
+//   specs : label/value rows (size, orbit, leads, …)
+//   href  : links the title, the illustration, and a "View project" link at the bottom
 // The children are the body text.
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+
 interface Props {
   title: string;
   Art: (props: Record<string, unknown>) => unknown;
   tag?: string;
-  meta?: string;
+  specs?: { label: string; value: string }[];
   href?: string;
 }
 
-const { title, Art, tag, meta, href } = Astro.props;
+const { title, Art, tag, specs, href } = Astro.props;
 const Media = href ? 'a' : 'div';
 ---
 
-<li>
-  <Media
-    href={href}
-    tabindex={href ? -1 : undefined}
-    aria-hidden="true"
-    class="block overflow-hidden rounded-sm border border-line transition-colors hover:border-clay"
-  >
+<li class="flex flex-col overflow-hidden rounded-sm border border-line bg-prussian/30 transition-colors has-[a:hover]:border-clay">
+  <Media href={href} tabindex={href ? -1 : undefined} aria-hidden="true" class="block border-b border-line">
     <Art class="block h-auto w-full" aria-hidden="true" />
   </Media>
-  <h3 class="mt-4 text-xl font-semibold text-balance text-white">
-    {href ? <a href={href} class="text-white decoration-white/30 hover:text-clay hover:decoration-clay">{title}</a> : title}
-  </h3>
-  {tag && <p class="mt-1 text-clay">{tag}</p>}
-  <div class="mt-3 space-y-3 text-lg text-pretty text-alice/80">
-    <slot />
+
+  <div class="flex flex-1 flex-col p-6">
+    <h3 class="text-xl font-semibold text-balance text-white">
+      {href ? <a href={href} class="text-white no-underline hover:text-clay">{title}</a> : title}
+    </h3>
+    {tag && <p class="mt-1 text-clay">{tag}</p>}
+    <div class="mt-3 space-y-3 text-pretty text-alice/80">
+      <slot />
+    </div>
+
+    {specs && (
+      <dl class="mt-6 border-b border-line">
+        {specs.map(({ label, value }) => (
+          <div class="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-4 border-t border-line py-2.5">
+            <dt class="pt-0.5 font-mono text-xs tracking-wider text-slate uppercase">{label}</dt>
+            <dd class="text-sm text-white">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+
+    {href && (
+      <a href={href} class="mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-sm text-white hover:text-clay">
+        View project <ArrowRight class="size-4" aria-hidden="true" />
+      </a>
+    )}
   </div>
-  {meta && <p class="mt-2 text-sm text-slate">{meta}</p>}
 </li>
