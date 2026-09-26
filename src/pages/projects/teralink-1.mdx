@@ -1,0 +1,48 @@
+---
+layout: ../../layouts/PageLayout.astro
+title: TeraLink-1
+description: "TeraLink-1: a 6U CubeSat for the first-ever terahertz space-to-ground link demo, funded by AFRL’s University Nanosatellite Program."
+heading: TeraLink-1
+lead: A 6U CubeSat for the first-ever terahertz space-to-ground link demo, funded by AFRL’s University Nanosatellite Program.
+---
+
+import { Section, Mission, Figure, TeraLinkLinks, PointsOfContact, PointOfContact } from '../../components';
+
+<Mission
+  id="overview"
+  name="Overview"
+  status="Critical Design Review"
+  collaborators="Funded by AFRL’s University Nanosatellite Program (UNP NS-12) · With UNLab at Northeastern’s INSI"
+  scale={[
+    { big: '6U', label: 'CubeSat (10 × 20 × 30 cm)' },
+    { big: '225 GHz', label: 'THz uplink & downlink' },
+    { big: '~400 km', label: 'ISS deployment orbit' },
+  ]}
+>
+<Figure slot="figure" caption="How TeraLink-1 talks to the ground.">
+  <TeraLinkLinks />
+</Figure>
+
+  TeraLink-1 will fly the first-ever terahertz-frequency space-to-ground link demo. It's a 6U CubeSat funded by AFRL's
+  University Nanosatellite Program and built with the Ultrabroadband Nanonetworking Lab (UNLab) at Northeastern's
+  Institute for the Wireless Internet of Things, and its payload is a pair of THz-band antennas for 225 GHz uplink and
+  downlink.
+
+  After deploying into an ISS orbit and detumbling, TeraLink-1 keeps its solar panels pointed at the sun. On passes over
+  campus it relays telemetry and location over UHF while its THz antenna face tracks our [THz ground
+  station](/projects/sub-thz). The experiment data is too big for UHF, so it comes down over S-band through three Amazon
+  Web Services ground stations.
+
+  The satellite design is complete. After making it through the first round last year, the team is preparing for UNP's
+  Critical Design Review in November (eight hours of AFRL judges critiquing our system design and analyses), and
+  building a FlatSat for flight-software development (F´ and embedded) and hardware- and software-in-the-loop testing.
+</Mission>
+
+<PointsOfContact>
+  <PointOfContact project="Project Manager">Noah Typrin</PointOfContact>
+  <PointOfContact project="Chief Engineer">Landon Bayer</PointOfContact>
+</PointsOfContact>
+
+<Section>
+<p class="text-alice/80"><a href="/projects">All projects</a></p>
+</Section>

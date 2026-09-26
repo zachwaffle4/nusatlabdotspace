@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/PageLayout.astro
+title: DEWSat
+description: "DEWSat, a Drought Early Warning Satellite that scores farmland for drought risk in orbit. A NASA Space to Soil finalist."
+heading: DEWSat
+lead: A Drought Early Warning Satellite that scores farmland for drought risk in orbit and sends down only the high-risk images.
+---
+
+import { Section, Mission, Figure, DewsatSwath, PointsOfContact, PointOfContact } from '../../components';
+
+<Mission
+  id="overview"
+  name="Overview"
+  status="NASA Space to Soil finalist"
+  scale={[
+    { big: '550 km', label: 'sun-synchronous orbit' },
+    { big: '12U → 6U', label: 'shrinking the form factor' },
+    { big: '~30–100 KB', label: 'quantized Bi-LSTM model' },
+  ]}
+>
+<Figure slot="figure" caption="DEWSat scores each image tile for drought risk in orbit and sends down only the high-risk tiles.">
+  <DewsatSwath />
+</Figure>
+
+  A four-member NSL team was selected as a finalist in NASA's Space to Soil challenge for DEWSat, a Drought Early Warning Satellite. DEWSat carries a red
+  and near-infrared multispectral imager and an onboard edge-AI compute stack. It splits its imagery into tiles, computes
+  vegetation indices on an FPGA, and runs a quantized Bi-LSTM (compressed ~20–50×) to give each tile a drought-risk
+  score. Only the high-risk tiles and their metadata get downlinked, over S-band, with telemetry and commands over UHF.
+  Inference runs only over priority regions during sunlit periods to save power.
+
+  Doing the analysis in orbit means faster responses without heavy ground infrastructure, and the same architecture
+  extends to wildfire, flood, and urban-heat monitoring, especially as a constellation.
+
+  Our competition entry went to AIAA as an extended abstract. This semester the team is finding a PI to work with,
+  developing and quantizing the model, laying out the satellite in CAD as a 6U design (down from 12U), and writing a
+  full paper due December 1 that we'll also submit to AFRL's University Nanosatellite Program.
+</Mission>
+
+<PointsOfContact>
+  <PointOfContact project="Program Lead">Swati Sundaram</PointOfContact>
+</PointsOfContact>
+
+<Section>
+<p class="text-alice/80"><a href="/projects">All projects</a></p>
+</Section>

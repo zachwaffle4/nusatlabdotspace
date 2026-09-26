@@ -1,0 +1,46 @@
+---
+layout: ../../layouts/PageLayout.astro
+title: Sub-THz Ground Station
+description: "The Sub-THz Ground Station: TeraLink-1’s ground segment, a 2 m reflector dish with 83 µm surface accuracy for 225 GHz links."
+heading: Sub-THz Ground Station
+lead: TeraLink-1’s ground segment. A 2 m reflector dish with 83 µm surface accuracy for 225 GHz uplink and downlink.
+---
+
+import { Section, Mission, Figure, CassegrainDish, PointsOfContact, PointOfContact } from '../../components';
+
+<Mission
+  id="overview"
+  name="Overview"
+  status="System Requirements Review"
+  collaborators="TeraLink-1’s ground segment · With UNLab at Northeastern’s INSI"
+  scale={[
+    { big: '2 m', label: 'Cassegrain reflector dish' },
+    { big: '83 µm', label: 'surface accuracy' },
+    { big: '225 GHz', label: 'THz uplink & downlink' },
+  ]}
+>
+<Figure slot="figure" caption="Cross-section of the Cassegrain dish, not to scale.">
+  <CassegrainDish />
+</Figure>
+
+  The ground half of [TeraLink-1](/projects/teralink-1)'s terahertz link, and a truly unprecedented challenge: a 2 m
+  Cassegrain reflector dish with a surface accuracy of 83 micrometers (0.083 mm), carrying two THz-band antennas for
+  225 GHz uplink and downlink.
+
+  When TeraLink-1 passes over our UHF ground station, it reports its location and telemetry. We turn that into a
+  two-line element set (TLE) to predict where it will be, and the THz station uses a star tracker and rotator to point
+  the dish and follow it. The satellite stores the uplink and downlink I/Q data from each experiment, then sends it down
+  over S-band.
+
+  This semester the team is working on reflector surface-accuracy analysis and fabrication with vendors and NU
+  facilities, thermal and structural analyses, hardware procurement, deployment-site preparation, and the electronics
+  and software architecture for pointing and tracking.
+</Mission>
+
+<PointsOfContact>
+  <PointOfContact project="Project Manager">Riley Ashok</PointOfContact>
+</PointsOfContact>
+
+<Section>
+<p class="text-alice/80"><a href="/projects">All projects</a></p>
+</Section>

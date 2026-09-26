@@ -8,12 +8,20 @@ import { PageIntro, Section, ContactForm, MailingListForm, contactEmail, socialL
   description="Get in touch with the Northeastern Satellite Lab, join the mailing list, or find us on social."
 >
   <PageIntro title="Contact">
-    Prospective members, collaborators, and press: email us at
-    <a href={`mailto:${contactEmail}`} class="[overflow-wrap:anywhere]">{contactEmail}</a>, or use the form below.
-    We’re also on
-    {socialLinks.map(({ href, label }, i) => (
-      <>{i > 0 && ' and '}<a href={href}>{label}</a></>
-    ))}.
+    <span class="block">
+      <strong class="text-white">NU student?</strong> Attend one of our <a href="/this-semester">meeting times</a> or
+      join the NSL Discord server, available on the NU Student Hub on Discord.
+    </span>
+    <span class="mt-4 block">
+      <strong class="text-white">Researcher, collaborator, press, or recruiter?</strong> Please email us at
+      <a href={`mailto:${contactEmail}`} class="[overflow-wrap:anywhere]">{contactEmail}</a> or use the form below.
+    </span>
+    <span class="mt-4 block">
+      We’re also on
+      {socialLinks.map(({ href, label }, i) => (
+        <>{i > 0 && ' and '}<a href={href}>{label}</a></>
+      ))}.
+    </span>
   </PageIntro>
 
   <Section title="Send a message" sub="The form opens your email app with the message filled in.">

@@ -15,6 +15,11 @@ export default defineConfig({
 
   site: 'https://nusatlab.space',
 
+  // The Programs page was folded into Projects.
+  redirects: {
+    '/programs': '/projects'
+  },
+
   fonts: [
     {
       name: 'Roboto',

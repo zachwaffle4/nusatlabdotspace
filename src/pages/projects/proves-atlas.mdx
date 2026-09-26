@@ -1,0 +1,42 @@
+---
+layout: ../../layouts/PageLayout.astro
+title: PROVES Atlas
+description: "PROVES Atlas, Northeastern’s first satellite: a student-built camera CubeSat deployed from the ISS in April 2026."
+heading: PROVES Atlas
+lead: Northeastern’s first satellite. A student-built camera CubeSat, deployed from the ISS as part of a five-university constellation.
+---
+
+import { Image } from 'astro:assets';
+import { Section, Mission, Figure } from '../../components';
+import cubesatEjected from '../../assets/photos/nasa-cubesat-ejected.jpg';
+
+<Mission
+  id="overview"
+  name="Overview"
+  status="Launched · April 2026"
+  collaborators="With the Pleiades Consortium, led by Cal Poly Pomona · PROVES"
+  scale={[
+    { big: '~15', label: 'students on the build' },
+    { big: '<1 yr', label: 'from kickoff to launch' },
+    { big: '5', label: 'partner university teams' },
+  ]}
+>
+<Figure slot="figure" caption="A student-built CubeSat leaves the ISS from the Kibo deployer, December 2024. Photo: NASA.">
+  <Image src={cubesatEjected} alt="A small CubeSat drifts away from the space station's robotic arm, with the Earth's limb below" widths={[480, 800, 1200]} sizes="(min-width: 1024px) 680px, 100vw" class="block h-auto w-full" />
+</Figure>
+
+  In April 2026, Northeastern went to space for the first time: a student-built CubeSat, deployed from the
+  International Space Station as one of a five-satellite constellation. About 15 students built it in under a year,
+  working shoulder-to-shoulder with the Pleiades Consortium, a group of five partner university teams led by Cal Poly
+  Pomona. Our students worked on both the hardware and the software of the platform, including assembly, integration,
+  and testing, with the satellite shipped around the country for environmental testing. We open-sourced all of it.
+
+  Atlas is an educational satellite with a Sony Spresense camera payload for imaging demos. It's part of PROVES, an
+  educational satellite program that's also developing university CubeSat kits for under $3,000, lowering the barrier to
+  space for students and researchers everywhere. Next up: a mobile ground station to track Atlas and the other PROVES
+  satellites.
+</Mission>
+
+<Section>
+<p class="text-alice/80"><a href="/projects">All projects</a></p>
+</Section>

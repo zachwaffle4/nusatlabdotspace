@@ -1,0 +1,37 @@
+---
+// A <Card> with an illustration on top, for the handful of flagship projects.
+//   Art  : SVG component imported from src/assets/missions/. Decorative, since the title names the program.
+//   tag  : status, shown under the title
+//   meta : small line under the body (leads, collaborators)
+//   href : links the title and the illustration
+// The children are the body text.
+interface Props {
+  title: string;
+  Art: (props: Record<string, unknown>) => unknown;
+  tag?: string;
+  meta?: string;
+  href?: string;
+}
+
+const { title, Art, tag, meta, href } = Astro.props;
+const Media = href ? 'a' : 'div';
+---
+
+<li>
+  <Media
+    href={href}
+    tabindex={href ? -1 : undefined}
+    aria-hidden="true"
+    class="block overflow-hidden rounded-sm border border-line transition-colors hover:border-clay"
+  >
+    <Art class="block h-auto w-full" aria-hidden="true" />
+  </Media>
+  <h3 class="mt-4 text-xl font-semibold text-balance text-white">
+    {href ? <a href={href} class="text-white decoration-white/30 hover:text-clay hover:decoration-clay">{title}</a> : title}
+  </h3>
+  {tag && <p class="mt-1 text-clay">{tag}</p>}
+  <div class="mt-3 space-y-3 text-lg text-pretty text-alice/80">
+    <slot />
+  </div>
+  {meta && <p class="mt-2 text-sm text-slate">{meta}</p>}
+</li>

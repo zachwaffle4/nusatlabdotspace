@@ -1,5 +1,4 @@
 export const navLinks = [
-  { href: '/programs', label: 'Programs' },
   { href: '/projects', label: 'Projects' },
   { href: '/this-semester', label: 'This Semester' },
   { href: '/people', label: 'People' },

@@ -6,68 +6,61 @@ heading: Projects
 lead: The full portfolio. Satellite and ground-station programs, national competitions, and open-source R&D.
 ---
 
-import { Section, Grid, Card, Mission, PointsOfContact, PointOfContact, Figure, DewsatSwath } from '../components';
+import { Section, Grid, Card, ImageCard } from '../components';
+import ProvesArt from '../assets/missions/proves.svg';
+import SatelliteArt from '../assets/missions/satellite.svg';
+import GroundstationArt from '../assets/missions/groundstation.svg';
+import DewsatArt from '../assets/missions/dewsat.svg';
 
-<Section title="Satellites and ground stations" sub="Write-ups for each are on the Programs page.">
+<Section id="flagship" title="Flagship Projects" sub="Our major projects; check out their dedicated pages!">
 
-<Grid cols={2}>
-  <Card title="PROVES Atlas" tag="Launched · April 2026" href="/programs#proves-atlas">
+<Grid cols={2} class="gap-y-14">
+  <ImageCard title="PROVES Atlas" tag="Launched · April 2026" href="/projects/proves-atlas" Art={ProvesArt}>
     Northeastern's first satellite: a student-built camera CubeSat, deployed from the ISS as part of a five-university
     constellation.
-  </Card>
-  <Card title="TeraLink-1" tag="Critical Design Review" href="/programs#teralink-1">
+  </ImageCard>
+  <ImageCard title="TeraLink-1" tag="Critical Design Review" href="/projects/teralink-1" Art={SatelliteArt} meta="Leads: Noah Typrin, Landon Bayer">
     A 6U CubeSat for the first-ever terahertz space-to-ground link demo, funded by AFRL's University Nanosatellite
     Program.
-  </Card>
-  <Card title="Sub-THz Ground Station" tag="In design" href="/programs#sub-thz">
+  </ImageCard>
+  <ImageCard title="Sub-THz Ground Station" tag="System Requirements Review" href="/projects/sub-thz" Art={GroundstationArt} meta="Lead: Riley Ashok">
     TeraLink-1's ground segment: a 2 m reflector dish with 83 µm surface accuracy for 225 GHz uplink and downlink.
+  </ImageCard>
+  <ImageCard title="DEWSat" tag="NASA Space to Soil finalist" href="/projects/dewsat" Art={DewsatArt} meta="Lead: Swati Sundaram">
+    A drought early-warning satellite that scores farmland for drought risk in orbit and sends down only the high-risk
+    images.
+  </ImageCard>
+</Grid>
+</Section>
+
+<Section id="core" title="Core Projects" sub="Smaller than a flagship program, each with its own lead.">
+
+<Grid cols={2}>
+  <Card title="LEONIRD CubeSat" tag="Payload development" meta="With the MIT Satellite Team · Lead: Laura Teixeira">
+    An MIT-led, open-source, payload-agnostic satellite bus made of three 1U CubeSats, built on PyCubed and moving to F´
+    and Zephyr, with a licensing target of December. NSL is helping choose a 1U payload instrument and supporting
+    payload engineering and bus design across firmware, software, and mechanics.
   </Card>
-  <Card title="LEONIRD CubeSat" tag="Rising project" href="/programs#leonird">
-    Helping the MIT Satellite Team pick and build a 1U payload for their open-source, payload-agnostic bus.
+
+  <Card title="Miniature EPS" tag="Lesson series" meta="Lead: Vishhal Kumar">
+    A miniature electrical power system board, built step by step in a workshop series during Hardware meetings.
   </Card>
 </Grid>
 </Section>
 
-<Mission
-  id="dewsat"
-  name="DEWSat"
-  status="NASA Space to Soil finalist"
-  scale={[
-    { big: '550 km', label: 'sun-synchronous orbit' },
-    { big: '12U → 6U', label: 'shrinking the form factor' },
-    { big: '~30–100 KB', label: 'quantized Bi-LSTM model' },
-  ]}
->
-<Figure slot="figure" caption="DEWSat scores each image tile for drought risk in orbit and sends down only the high-risk tiles.">
-  <DewsatSwath />
-</Figure>
-
-  A four-member NSL team was selected as a finalist in NASA's Space to Soil challenge for DEWSat, a Drought Early Warning Satellite. DEWSat carries a red
-  and near-infrared multispectral imager and an onboard edge-AI compute stack. It splits its imagery into tiles, computes
-  vegetation indices on an FPGA, and runs a quantized Bi-LSTM (compressed ~20–50×) to give each tile a drought-risk
-  score. Only the high-risk tiles and their metadata get downlinked, over S-band, with telemetry and commands over UHF.
-  Inference runs only over priority regions during sunlit periods to save power.
-
-  Doing the analysis in orbit means faster responses without heavy ground infrastructure, and the same architecture
-  extends to wildfire, flood, and urban-heat monitoring, especially as a constellation.
-
-  Our competition entry went to AIAA as an extended abstract. This semester the team is finding a PI to work with,
-  developing and quantizing the model, laying out the satellite in CAD as a 6U design (down from 12U), and writing a
-  full paper due December 1 that we'll also submit to AFRL's University Nanosatellite Program.
-</Mission>
-
-<Mission id="gtoc-14" name="GTOC-14" status="Competition · forming interest">
-  The Global Trajectory Optimization Competition, often called the "America's Cup of Rocket Science," is an
-  international trajectory-optimization contest. GTOC-14 hasn't been announced yet, but NSL intends to field a team and
-  is gathering interested members ahead of the announcement.
-</Mission>
-
 <Section
-  title="Open-source R&D"
-  sub="Tools and hardware we build in the open, free for any student or researcher to use."
+  id="rising"
+  title="Rising Projects"
+  sub="Competitions and open-source R&D. The tools and hardware we build in the open are free for any student or researcher to use."
 >
 
 <Grid cols={2}>
+  <Card title="GTOC-14" tag="Competition · forming interest">
+    The Global Trajectory Optimization Competition, often called the "America's Cup of Rocket Science," is an
+    international trajectory-optimization contest. GTOC-14 hasn't been announced yet, but NSL intends to field a team
+    and is gathering interested members ahead of the announcement.
+  </Card>
+
   <Card title="Open-Source Star Tracker Software" tag="In development">
     An open attitude-determination algorithm that identifies a spacecraft's orientation from the stars it sees. A
     Software team project.
@@ -83,11 +76,6 @@ import { Section, Grid, Card, Mission, PointsOfContact, PointOfContact, Figure, 
     A student-designed deployable solar-panel mechanism that gets more power out of a CubeSat's small surface area.
   </Card>
 
-  <Card title="Miniature EPS" tag="Lesson series">
-    A miniature electrical power system board, built step by step in a workshop series during Hardware meetings and led
-    by our EE lead, Vishhal Kumar.
-  </Card>
-
   <Card title="Pointing & Tracking System" tag="Apply to join" meta="With PhD students">
     Pointing and tracking development alongside Northeastern PhD students. Spots are limited, so members apply to join.
   </Card>
@@ -98,10 +86,3 @@ import { Section, Grid, Card, Mission, PointsOfContact, PointOfContact, Figure, 
   </Card>
 </Grid>
 </Section>
-
-<PointsOfContact>
-  <PointOfContact project="TeraLink-1">Noah Typrin, Landon Bayer</PointOfContact>
-  <PointOfContact project="Sub-THz Ground Station">Riley Ashok</PointOfContact>
-  <PointOfContact project="DEWSat">Swati Sundaram</PointOfContact>
-  <PointOfContact project="LEONIRD CubeSat">Laura Teixeira</PointOfContact>
-</PointsOfContact>
